@@ -12,7 +12,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // all new routes will be here
-app.use("/api", homeRoutes);
+app.use("/app", homeRoutes);
+
 
 // server configuration
 const server = http.createServer(app);
