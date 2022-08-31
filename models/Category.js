@@ -2,7 +2,8 @@
 const {
   Model
 } = require('sequelize');
-db.job = require('./Job')
+const { Sequelize } = require('.');
+// db.job = require('./Job')
 module.exports = (sequelize, DataTypes) => {
   class Category extends Model {
     /**
@@ -12,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      db.Category.hasMany(db.job, {forgenKey:"id"})
+      Category.hasMany(models.Job, {foreignKey:"categoryId", as:"JobCategories"})
     }
   }
   Category.init({
@@ -22,10 +23,11 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    ctype: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: null
+      defaultValue: null,
+      unique: true
     },
     createdAt: {
       allowNull: false,
@@ -40,6 +42,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Category',
+    tableName: 'categories'
   });
   return Category;
 };

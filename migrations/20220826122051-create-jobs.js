@@ -1,46 +1,60 @@
 'use strict';
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  async up(queryInterface, DataTypes) {
     await queryInterface.createTable('jobs', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: DataTypes.INTEGER
       },
       title: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
         defaultValue:null
       },
       location: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
         defaultValue:null
       },
       salary: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
         defaultValue:null
       },
       description: {
-        type: Sequelize.TEXT,
+        type: DataTypes.TEXT,
+        allowNull: false,
+        defaultValue:null
+      },userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue:null
+      },
+      companyId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue:null
+      },
+      categoryId: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         defaultValue:null
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: DataTypes.DATE,
         defaultValue: new Date()
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: DataTypes.DATE,
         defaultValue: new Date()
       }
     });
   },
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface, DataTypes) {
     await queryInterface.dropTable('jobs');
   }
 };

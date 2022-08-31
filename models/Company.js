@@ -2,6 +2,8 @@
 const {
   Model
 } = require('sequelize');
+// const db = require('./index');
+// db.job = require("./Job");
 module.exports = (sequelize, DataTypes) => {
   class Company extends Model {
     /**
@@ -11,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-
+  
+        // Company.belongsTo(models.User)
     }
   }
   Company.init({
@@ -32,7 +35,12 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue:null
     },
     aboutCompany: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue:null
+    },
+    userId: {
+      type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue:null
     },
@@ -49,6 +57,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Company',
+    tableName: "companies"
   });
   return Company;
 };

@@ -6,6 +6,11 @@ const bodyParser = require("body-parser");
 
 const app = express();
 const homeRoutes = require("./routes/home");
+const userRoutes = require("./routes/user");
+const jobsRoutes = require("./routes/jobs");
+const categoryRoutes = require("./routes/category");
+const companyRoutes = require("./routes/company");
+
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -13,6 +18,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // all new routes will be here
 app.use("/app", homeRoutes);
+app.use("/user", userRoutes);
+app.use("/job", jobsRoutes);
+app.use("/category", categoryRoutes);
+app.use("/company", companyRoutes);
+
 
 
 // server configuration

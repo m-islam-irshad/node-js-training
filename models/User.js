@@ -1,10 +1,13 @@
-'use strict';
+// // 'use strict';
 const {
   Model
 } = require('sequelize');
-const db = require('./index');
-db.job = require("./Job");
-db.company = require('./Company')
+      // const db = require('./index');
+      // db.job = require("./Job");
+      // // db.company = require('./Company');
+
+
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -13,9 +16,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      
       // define association here
-      db.user.belongsToMany(db.job, {through:"UserJob"})
-      db.user.hasMany(db.company, {forgenKey:"id"})
+      User.hasMany(models.Company, {foreignKey:"userId", as:"companies"})
+      User.belongsToMany(models.Job, {through:"UserJob"})
+      
+
     }
   }
   User.init({
@@ -65,6 +71,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
+    tableName: 'users'
   });
   return User;
 };
+

@@ -2,7 +2,8 @@
 const {
   Model
 } = require('sequelize');
-db.user = require("./User");
+// const db = require('./index')
+// db.user = require("./User");
 module.exports = (sequelize, DataTypes) => {
   class Job extends Model {
     /**
@@ -12,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      db.job.belongsToMany(db.user, {through:"UserJob"})
+      // db.Job.belongsToMany(db.user, {through:"UserJob"})
     }
   }
   Job.init({
@@ -22,12 +23,37 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER
     },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue:null
+    },
+    salary: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue:null
+    },
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue:null
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      defaultValue:null
+    },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue:null
     },
-    jobId: {
+    companyId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue:null
+    },
+    categoryId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue:null
@@ -45,6 +71,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Job',
+    tableName: "jobs"
   });
   return Job;
 };
