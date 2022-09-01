@@ -10,7 +10,7 @@ const userRoutes = require("./routes/user");
 const jobsRoutes = require("./routes/jobs");
 const categoryRoutes = require("./routes/category");
 const companyRoutes = require("./routes/company");
-
+const authRoutes = require("./routes/auth");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -22,6 +22,7 @@ app.use("/user", userRoutes);
 app.use("/job", jobsRoutes);
 app.use("/category", categoryRoutes);
 app.use("/company", companyRoutes);
+app.use("/auth", authRoutes);
 
 
 

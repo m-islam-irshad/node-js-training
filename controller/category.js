@@ -10,10 +10,10 @@ module.exports = {
               include:[{model:db.Job, as:"JobCategories" }]
             });
           
-            res.status(201).json(data);
+            res.status(200).json(data);
           } catch (err) {
             console.log(err);
-            res.status(400).send("Data Not Find");
+            res.status(404).send("Data Not Find");
           }
           
     },

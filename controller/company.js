@@ -6,7 +6,9 @@ module.exports = {
 
 
         try {
-            const data = await db.Company.findAll();
+            const data = await db.Company.findAll({
+              include:[{model:db.Job}]
+            });
             res.status(201).json(data);
           } catch (err) {
             console.log(err);
