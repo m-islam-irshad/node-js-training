@@ -1,6 +1,7 @@
 const express = require("express");
 const { check, validationResult } = require("express-validator");
 
+const AllUser = require("../middleware/allUsers")
 
 const signupController = require("../controller/signup");
 const loginController = require("../controller/login");
@@ -16,7 +17,7 @@ router.post("/signup", [
 ] ,signupController.SignUp);
 
 
-router.get("/signupallusers", signupController.index);
+router.get("/signupallusers", AllUser, signupController.index);
 
 
 router.post("/login", loginController.LogIn);

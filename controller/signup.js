@@ -8,7 +8,9 @@ const JWT = require("jsonwebtoken");
 module.exports = {
     async index(req, res) {
         try {
-            const data = await db.Authentication.findAll();
+            const data = await db.User.findAll({
+                include:[{model:db.Company, as: "companies"}]
+              });
             res.status(201).json(data);
           } catch (err) {
             console.log(err);
@@ -19,7 +21,7 @@ module.exports = {
 
     async SignUp(req, res) {
     
-        const {password, email} = req.body;
+        const {firstName, lastName, email, phoneNumber, type ,password} = req.body;
         // Validate the Input
         console.log(password, email)
         const errors = validationResult(req)
@@ -30,7 +32,7 @@ module.exports = {
             })
         }
 
-        let emailExist = await db.Authentication.findOne({
+        let emailExist = await db.User.findOne({
             where: {email: email}
         })
    
@@ -45,7 +47,7 @@ module.exports = {
         const hashedPassword = await bcrypt.hash(password, 10);
         console.log(hashedPassword, "This is our hashpassowrd");
 
-        await db.Authentication.create({email:email, password:hashedPassword})
+        await db.User.create({firstName:firstName, lastName:lastName, email:email, phoneNumber:phoneNumber, type:type, password:hashedPassword})
         // token have the 3 part first one is header it have the json information 2 type of information, ya kiss type ka token ha and and the second is algorathem which algorethem is used for segnature. (HS256) HMAC SHA 256 (hashed message authentication code), RSA etc.
         // 2nd part is payload: it's claim based data. user information, is main hm apni seceret information ni dalyn gy
         // 3rd part is signature: 

@@ -6,8 +6,7 @@ const userController = require("../controller/user");
 
 const router = express.Router();
 
-router.get("/alluser", AllUser.index  ,userController.index);
-router.post("/adduser",userController.AddUser);
+router.get("/alluser", AllUser ,userController.index);
 
 module.exports = router;
 

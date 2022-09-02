@@ -30,6 +30,11 @@ module.exports = {
         defaultValue:null,
         unique: true
       },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue:null
+      },
       type: {
         type: DataTypes.STRING,
         allowNull: false,

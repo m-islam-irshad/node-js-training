@@ -6,22 +6,12 @@ const JWT = require("jsonwebtoken");
 
 
 module.exports = {
-    async index(req, res) {
-        try {
-            const data = await db.Authentication.findAll();
-            res.status(201).json(data);
-          } catch (err) {
-            console.log(err);
-            res.status(400).send("Data Not Find");
-          }
-          
-    },
-
+   
     async LogIn(req, res) {
     
         const {password, email} = req.body;
         
-        let userExist = await db.Authentication.findOne({
+        let userExist = await db.User.findOne({
             where: {email: email}
         });
         if(!userExist){

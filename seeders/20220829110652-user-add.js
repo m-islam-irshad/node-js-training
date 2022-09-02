@@ -16,18 +16,14 @@ module.exports = {
         lastName: "Muzammal",
         email:"muzammalbinirshad@gmail.com",
         phoneNumber:"03077831244",
-        type:"seeker"  
+        password: 'pakistan',
+        type:"admin"  
        },{
         firstName: 'Muhammad',
         lastName: "Hamza",
         email:"hamzaibneirshad@gmail.com",
-        phoneNumber:"030197831244",
-        type:"seeker"  
-       },{
-        firstName: 'Muhammad',
-        lastName: "Talha",
-        email:"talhaibnekhalid@gmail.com",
-        phoneNumber:"03000419070",
+        phoneNumber:"03197831244",
+        password:"pakistan",
         type:"seeker"  
        }], {});
   },
