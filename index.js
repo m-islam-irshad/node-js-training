@@ -24,8 +24,6 @@ app.use("/category", categoryRoutes);
 app.use("/company", companyRoutes);
 app.use("/auth", authRoutes);
 
-
-
 // server configuration
 const server = http.createServer(app);
 const PORT = process.env.SERVER_PORT || 5000;

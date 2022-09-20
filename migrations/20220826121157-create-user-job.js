@@ -1,7 +1,6 @@
-'use strict';
 module.exports = {
   async up(queryInterface, DataTypes) {
-    await queryInterface.createTable('user_jobs', {
+    await queryInterface.createTable("user_jobs", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,12 +10,12 @@ module.exports = {
       userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        defaultValue:null
+        defaultValue: null
       },
       jobId: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        defaultValue:null
+        defaultValue: null
       },
       createdAt: {
         allowNull: false,
@@ -31,6 +30,6 @@ module.exports = {
     });
   },
   async down(queryInterface, DataTypes) {
-    await queryInterface.dropTable('user_jobs');
+    await queryInterface.dropTable("user_jobs");
   }
 };

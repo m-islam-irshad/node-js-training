@@ -8,4 +8,3 @@ router.get("/allcategories", categoryController.index);
 router.post("/addcategory", categoryController.AddCategory);
 
 module.exports = router;
-

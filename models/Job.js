@@ -1,7 +1,6 @@
-'use strict';
 const {
   Model
-} = require('sequelize');
+} = require("sequelize");
 // const db = require('./index')
 // db.user = require("./User");
 module.exports = (sequelize, DataTypes) => {
@@ -26,37 +25,37 @@ module.exports = (sequelize, DataTypes) => {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue:null
+      defaultValue: null
     },
     salary: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue:null
+      defaultValue: null
     },
     location: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue:null
+      defaultValue: null
     },
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
-      defaultValue:null
+      defaultValue: null
     },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue:null
+      defaultValue: null
     },
     companyId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue:null
+      defaultValue: null
     },
     categoryId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue:null
+      defaultValue: null
     },
     createdAt: {
       allowNull: false,
@@ -70,7 +69,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'Job',
+    modelName: "Job",
     tableName: "jobs"
   });
   return Job;

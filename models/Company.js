@@ -1,7 +1,6 @@
-'use strict';
 const {
   Model
-} = require('sequelize');
+} = require("sequelize");
 // const db = require('./index');
 // db.job = require("./Job");
 module.exports = (sequelize, DataTypes) => {
@@ -13,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-        Company.hasMany(models.Job, {foreignKey: "companyId"})
+      Company.hasMany(models.Job, { foreignKey: "companyId" });
     }
   }
   Company.init({
@@ -26,22 +25,22 @@ module.exports = (sequelize, DataTypes) => {
     companyName: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue:null
+      defaultValue: null
     },
     address: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue:null
+      defaultValue: null
     },
     aboutCompany: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue:null
+      defaultValue: null
     },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue:null
+      defaultValue: null
     },
     createdAt: {
       allowNull: false,
@@ -55,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'Company',
+    modelName: "Company",
     tableName: "companies"
   });
   return Company;

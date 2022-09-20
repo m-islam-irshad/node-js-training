@@ -1,7 +1,7 @@
-'use strict';
 const {
   Model
-} = require('sequelize');
+} = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
   class UserJob extends Model {
     /**
@@ -23,12 +23,12 @@ module.exports = (sequelize, DataTypes) => {
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue:null
+      defaultValue: null
     },
     jobId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue:null
+      defaultValue: null
     },
     createdAt: {
       allowNull: false,
@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'UserJob',
+    modelName: "UserJob",
     tableName: "user_jobs"
   });
   return UserJob;
